@@ -12,14 +12,8 @@ students = {
 }
 
 @app.route("/")
-def index():
-    return render_template("index.html")
-
-@app.route("/search", methods=["POST"])
-def search():
-    name = request.form["name"]
-    score = students.get(name)
-    return render_template("result.html", name=name, score=score)
+def home():
+    return "這是首頁，目前沒有搜尋功能。"
 
 @app.route("/upload", methods=["POST"])
 def upload_data():
