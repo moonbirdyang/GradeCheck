@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>查詢結果</title></head>
+<body>
+    {% if score is not none %}
+        <h3>{{ name }} 的成績為 {{ score }} 分</h3>
+    {% else %}
+        <h3>查無此學生：{{ name }}</h3>
+    {% endif %}
+    <a href="/">回首頁</a>
+</body>
+</html>
