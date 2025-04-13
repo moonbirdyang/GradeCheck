@@ -32,12 +32,16 @@ def show_data():
         with open("students_data.csv", newline='', encoding='utf-8-sig') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
+                # 把 score 欄位轉成 int 方便排序
+                row["score"] = int(row["score"])
                 students.append(row)
     except FileNotFoundError:
         return "目前尚無資料。"
 
+    # 按照 score 由高到低排序
+    students.sort(key=lambda s: s["score"], reverse=True)
     return render_template("data.html", students=students)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # 在 Railway 會提供 PORT，否則預設 5000
+    port = int(os.environ.get("PORT", 5000))  # Railway 會提供 port，否則預設 5000
     app.run(host="0.0.0.0", port=port)
