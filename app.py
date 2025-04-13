@@ -5,12 +5,6 @@ import csv
 
 app = Flask(__name__)
 
-students = {
-    "小明": 88,
-    "小華": 92,
-    "小美": 75
-}
-
 @app.route("/")
 def home():
     return "這是首頁，目前沒有搜尋功能。"
